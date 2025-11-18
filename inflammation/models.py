@@ -77,3 +77,15 @@ def daily_min(data):
     """
     return np.min(data, axis=0)
 
+
+def s_dev(data):
+    """Computes and returns standard deviation for data.
+
+    :param data: Input data for standard deviation calculation
+    """
+    # Use the NumPy standard deviation function
+    std_dev = np.std(data, axis=0)
+    
+    # Return the result in the original dictionary format
+    return std_dev
+    
