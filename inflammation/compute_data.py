@@ -16,6 +16,7 @@ class CSVDataSource:
     def load_inflammation_data(self):
         """Loads inflammation data from a CSV file.
 
+<<<<<<< HEAD
         Args:
             file_path (str): The path to the CSV file containing inflammation data.
         Returns:
@@ -28,6 +29,20 @@ class CSVDataSource:
         return list(data)
     
 def compute_standard_deviation_by_day(data):
+=======
+def analyse_data(data_dir):
+    """Calculates the standard deviation by day between datasets.
+
+    Gets all the inflammation data from CSV files within a directory,
+    works out the mean inflammation value for each day across all datasets,
+    then plots the graphs of standard deviation of these means."""
+    data_file_paths = glob.glob(os.path.join(data_dir, 'inflammation*.csv'))
+    if len(data_file_paths) == 0:
+        raise ValueError(f"No inflammation data CSV files found in path {data_dir}")
+    data = map(models.load_csv, data_file_paths)
+
+
+>>>>>>> 9946564 (Improved formatting and documentation)
     means_by_day = map(models.daily_mean, data)
     means_by_day_matrix = np.stack(list(means_by_day))
 
