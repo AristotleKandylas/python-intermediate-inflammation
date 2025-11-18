@@ -8,7 +8,40 @@ and each column represents a single day across all patients.
 """
 
 import numpy as np
+from inflammation import models, views
+import glob
+import os
+import json
 
+class JSONDataSource:
+    """Class to represent a data source for inflammation data from JSON files."""
+    def __init__(self, dir_path):
+        self.dir_path = dir_path
+        
+    def load_json(filename):
+        """Load a numpy array from a JSON document.
+        
+        Expected format:
+        [
+        {
+            "observations": [0, 1]
+        },
+        {
+            "observations": [0, 2]
+        }    
+        ]
+        :param filename: Filename of CSV to load
+        """
+        with open(filename, 'r', encoding='utf-8') as file:
+            data_as_json = json.load(file)
+            return [np.array(entry['observations']) for entry in data_as_json]
+        
+    def load_inflammation_data(self):
+        data_file_paths = glob.glob(os.path.join(self.dir_path, 'inflammation*.json'))
+        if len(data_file_paths) == 0:
+            raise ValueError(f"No inflammation JSON files found in path {self.dir_path}")
+        data = map(models.load_json, data_file_paths)
+        return list(data)
 
 def load_csv(filename):  
     """Load a Numpy array from a CSV
