@@ -1,0 +1,7 @@
+authors:
+  - family-names: Doe
+    given-names: John
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "Inflam"
+version: 1.0.0
