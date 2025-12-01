@@ -1,11 +1,35 @@
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
 [project]
-name = "python-intermediate-inflammation"
-version = "0.0.0"
-requires-python = ">=3.9"
+name = "inflammation"
+version = "1.0.0"
+description = "Analyse patient inflammation data"
+authors = [
+    {name = "James Graham",email = "J.Graham@software.ac.uk"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy (>=1.24.0,<2.0.0)",
+    "matplotlib (>=3.7.0,<4.0.0)"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+license-files = ["LICEN[CS]E"]
 
-[tool.setuptools]
-packages = ["inflammation"]
+[project.urls]
+Homepage = "https://github.com/AristotleKandylas/python-intermediate-inflammation"
+Issues = "https://github.com/AristotleKandylas/python-intermediate-inflammation/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pylint (>=4.0.4,<5.0.0)"
+]
