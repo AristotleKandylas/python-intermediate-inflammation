@@ -9,8 +9,8 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "numpy (>=1.24.0,<2.0.0)",
-    "matplotlib (>=3.7.0,<4.0.0)"
+    "numpy>=1.24.0,<2.0.0",
+    "matplotlib>=3.7.0,<4.0.0",
 ]
 classifiers = [
     "Programming Language :: Python :: 3.10",
@@ -19,7 +19,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
-license-files = ["LICEN[CS]E"]
+
 
 [project.urls]
 Homepage = "https://github.com/AristotleKandylas/python-intermediate-inflammation"
@@ -31,5 +31,6 @@ build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
 dev = [
-    "pylint (>=4.0.4,<5.0.0)"
+    "mkdocs>=1.6.1",
+    "pylint (>=4.0.4,<5.0.0)",
 ]
